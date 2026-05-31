@@ -13,8 +13,8 @@ from myvllm.engine.llm_engine import LLMEngine as LLM
 from myvllm.sampling_parameters import SamplingParams
 
 config = {
-    'max_num_sequences': 16,
-    'max_num_batched_tokens': 1024,
+    'max_num_sequences': 2,
+    'max_num_batched_tokens': 100,
     'max_cached_blocks': 1024,
     'block_size': 256,
     'world_size': 1,
@@ -51,10 +51,10 @@ def main():
     # both should be set in SamplingParams and help to determine when to stop generation
     sampling_params = SamplingParams(temperature=0.6, max_tokens=256, max_model_length=128)
     prompts = [
-        "introduce yourself",# * 15,
-        "list all prime numbers within 100",# * 15,
-        "give me your opinion on the impact of artificial intelligence on society",# * 15,
-    ] #* 30
+        "introduce yourself",# * 2,
+        "list all prime numbers within 100",# * 2,
+        "give me your opinion on the impact of artificial intelligence on society",# * 2,
+    ] #* 4
     prompts = [
         tokenizer.apply_chat_template(
             [{"role": "user", "content": prompt}],
